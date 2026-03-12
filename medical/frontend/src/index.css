@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* This tells Tailwind v4 about your custom variables */
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-card: hsl(var(--card));
+  --color-muted: hsl(var(--muted));
+  --color-success: hsl(var(--success));
+  
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --background: 195 20% 98%;
+    --foreground: 200 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 10%;
+    --primary: 174 62% 40%;
+    --muted: 195 20% 95%;
+    --muted-foreground: 200 10% 45%;
+    --border: 195 20% 88%;
+    --radius: 0.75rem;
+    --success: 158 64% 42%;
+  }
+
+  .dark {
+    --background: 200 25% 7%;
+    --foreground: 195 20% 95%;
+    --card: 200 25% 12%;
+    --border: 200 20% 18%;
+  }
+
+  * {
+    /* We use the variable directly here to avoid the @apply error */
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gradient-medical {
+    background: linear-gradient(135deg, hsl(174, 62%, 40%), hsl(195, 70%, 45%));
+  }
+}
